@@ -17,7 +17,7 @@ import (
 
 func main() {
 	var questions []model.QuestionStruct
-	file, err := os.Open("motogp.json")
+	file, err := os.Open("goquiz.json")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -30,8 +30,9 @@ func main() {
 	//app.Use(middleware.Logger())
 	questionHandler := handler.QuestionHandler{Questions: questions, Index: 0, Score: 0}
 
-	app.GET("/", questionHandler.HandleQuestionShow)
-	app.POST("/", questionHandler.HandleQuestionPost)
+	app.GET("/", questionHandler.MainPage)
+	app.POST("/next", questionHandler.Next)
+	app.POST("/explain", questionHandler.Explain)
 
 	app.Static("/css", "css")
 	app.Start(":3000")

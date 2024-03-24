@@ -1,10 +1,22 @@
 package question
 
-templ Explain(expl string){
-    <div>
+templ Explain(expl string, correct bool){
+    if correct{
+        <div>
+            <h3 class="font-bold">Risposta Esatta!</h3><br/>
             <p>{ expl }</p><br/>
-            <form action="/" method="post">
-                <input type="submit" value="Next"></input>
+            <form hx-target="#question" hx-post="/next">
+                <input class="bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white" type="submit" value="Next"></input>
             </form>
-    </div>
+        </div>
+    } else {
+        <div>
+            <h3 class="font-bold">Risposta Sbagliata!</h3><br/>
+            <p>{ expl }</p><br/>
+            <form hx-target="#question" hx-post="/next">
+                <input class="bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white" type="submit" value="Next"></input>
+            </form>
+        </div>
+
+    }
 }

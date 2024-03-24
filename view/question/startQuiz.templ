@@ -1,0 +1,11 @@
+package question
+
+import 	"github.com/Lorenzzz90/quizland/view/layout"
+
+templ Start(){
+    @layout.Base(){
+        <div class="container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white " hx-target="#question" hx-post="/next">
+            <h1 class=" text-5xl">Start Quiz</h1>
+        </div>
+    }
+}

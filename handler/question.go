@@ -16,13 +16,26 @@ type QuestionHandler struct {
 	Score     int
 }
 
-func (h *QuestionHandler) HandleQuestionShow(c echo.Context) error {
+func (h *QuestionHandler) MainPage(c echo.Context) error {
 	h.Index = 0
 	h.Score = 0
-	return render(c, question.Show(h.Questions[h.Index]))
+	return render(c, question.Start())
 }
 
-func (h *QuestionHandler) HandleQuestionPost(c echo.Context) error {
+func (h *QuestionHandler) Next(c echo.Context) error {
+	if h.Index < len(h.Questions) {
+		h.Index++
+		return render(c, question.Show(h.Questions[h.Index-1]))
+	} else {
+		score := h.Score
+		h.Index = 0
+		h.Score = 0
+		return render(c, question.Result(score, len(h.Questions)))
+	}
+}
+
+func (h *QuestionHandler) Explain(c echo.Context) error {
+	correct := false
 	c.Request().ParseForm()
 	answer := c.Request().FormValue("answer")
 	intAnswer, err := strconv.Atoi(answer)
@@ -30,16 +43,9 @@ func (h *QuestionHandler) HandleQuestionPost(c echo.Context) error {
 		http.Error(c.Response().Writer, "Invalid option", http.StatusTeapot)
 		return err
 	}
-	if intAnswer == h.Questions[h.Index].Correct {
+	if intAnswer == h.Questions[h.Index-1].Correct {
 		h.Score++
+		correct = true
 	}
-	if h.Index+1 < len(h.Questions) {
-		h.Index++
-		return render(c, question.Show(h.Questions[h.Index]))
-	} else {
-		score := h.Score
-		h.Index = 0
-		h.Score = 0
-		return render(c, question.Result(score, len(h.Questions)))
-	}
+	return render(c, question.Explain(h.Questions[h.Index-1].Explanation, correct))
 }

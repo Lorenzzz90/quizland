@@ -1,18 +1,15 @@
 package question
 
 import (
-    "github.com/Lorenzzz90/quizland/view/layout"
     "fmt"
 )
     
 
 templ Result(score int, total int){
-    @layout.Base(){
-        <div>
-            <p>Hai totalizzato { fmt.Sprint(score) } punti su { fmt.Sprint(total) } domande totali! </p><br/>
-            <form action="/" method="get">
-                <input class="bg-white p-1.5 rounded-md shadow-lg hover:bg-teal-600 hover:text-white" type="submit" value="Riprova"></input>
-            </form>
-        </div>
-    }
+    <div>
+        <p class="font-bold">Hai totalizzato { fmt.Sprint(score) } punti su { fmt.Sprint(total) } domande totali! </p><br/>
+        <form action="/" method="get">
+            <input class="bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white" type="submit" value="Riprova"></input>
+        </form>
+    </div>  
 }

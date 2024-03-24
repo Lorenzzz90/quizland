@@ -10,11 +10,12 @@ templ Base() {
 			<title>Quizland</title>
 			<link href="/css/output.css" rel="stylesheet"/>
 			<link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+			<script src="https://unpkg.com/htmx.org@1.9.11" integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
 		</head>
-		<body class=" bg-teal-500">
+		<body class=" bg-cyan-500">
 			<main>
-				<h1 class="text-3xl font-bold flex justify-center mt-40 mb-20">Go Quiz</h1>
-            <div class="bg-white flex shrink-0 p-6 max-w-6xl mx-auto rounded-xl shadow-2xl" style="color">
+				<h1 class=" text-8xl font-bold flex justify-center mt-40 mb-20 text-white">Go Quiz</h1>
+            <div id="question" class="bg-white flex shrink-0 p-6 max-w-7xl mx-auto rounded-xl shadow-2xl  text-2xl" style="color">
                 { children... }
             </div>
 			</main>

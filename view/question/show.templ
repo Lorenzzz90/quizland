@@ -3,26 +3,21 @@ package question
 import (
     "github.com/Lorenzzz90/quizland/model"
     "fmt"
-	"github.com/Lorenzzz90/quizland/view/layout"
 )
 
 templ Show(q model.QuestionStruct){
-    @layout.Base(){
-        <div>
-        <form action="/" method="post">
-        <h3 class="pb-5 font-bold"> { q.Question } </h3>
-        for i, answer := range q.Answers {
-            if i == 0{
-                <input type="radio" id={ fmt.Sprint(i + 1)} value={ fmt.Sprint(i + 1) } name="answer" checked="true"/>
-                <label class="hover:bg-teal-200" for={ fmt.Sprint(i + 1) }> { answer } </label><br/>
-            } else {
-                <input type="radio" id={ fmt.Sprint(i + 1)} value={ fmt.Sprint(i + 1) } name="answer"/>
-                <label class="hover:bg-teal-200" for={ fmt.Sprint(i + 1) }> { answer } </label><br/>
-            }
+    <form hx-target="#question" hx-post="/explain">
+    <h3 class="pb-5 font-bold"> { q.Question } </h3>
+    for i, answer := range q.Answers {
+        if i == 0{
+            <input type="radio" id={ fmt.Sprint(i + 1)} value={ fmt.Sprint(i + 1) } name="answer" checked="true"/>
+            <label class="hover:bg-cyan-200" for={ fmt.Sprint(i + 1) }> { answer } </label><br/>
+        } else {
+            <input type="radio" id={ fmt.Sprint(i + 1)} value={ fmt.Sprint(i + 1) } name="answer"/>
+            <label class="hover:bg-cyan-200" for={ fmt.Sprint(i + 1) }> { answer } </label><br/>
         }
-        <br/>
-        <input class="bg-white p-1.5 rounded-md shadow-lg hover:bg-teal-600 hover:text-white" type="submit" value="submit"></input>
-        </form>
-        </div>
     }
+    <br/>
+    <input class="bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white" type="submit" value="Submit"></input>
+    </form>   
 }

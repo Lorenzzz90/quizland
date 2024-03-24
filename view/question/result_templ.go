@@ -15,7 +15,7 @@ import (
 	"github.com/Lorenzzz90/quizland/view/layout"
 )
 
-func Result(score int) templ.Component {
+func Result(score int, total int) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -47,7 +47,20 @@ func Result(score int) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" punti su 20 domande totali! </p><br><form action=\"/\" method=\"get\"><input class=\"bg-white p-1.5 rounded-md shadow-lg hover:bg-teal-600 hover:text-white\" type=\"submit\" value=\"Riprova\"></form></div>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" punti su ")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var4 string
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprint(total))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/question/result.templ`, Line: 11, Col: 81}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" domande totali! </p><br><form action=\"/\" method=\"get\"><input class=\"bg-white p-1.5 rounded-md shadow-lg hover:bg-teal-600 hover:text-white\" type=\"submit\" value=\"Riprova\"></form></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

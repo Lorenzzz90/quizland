@@ -1,0 +1,112 @@
+[
+    {
+        "question": "Chi è stato il campione del mondo di MotoGP nel 2019?",
+        "answers": [
+            "Marc Marquez",
+            "Andrea Dovizioso",
+            "Valentino Rossi",
+            "Jorge Lorenzo"
+        ],
+        "correct": 1,
+        "explanation": "Marc Marquez ha vinto il campionato del mondo di MotoGP nel 2019."
+    },
+    {
+        "question": "Quale pilota MotoGP è noto come 'Il Dottore'?",
+        "answers": [
+            "Marc Marquez",
+            "Jorge Lorenzo",
+            "Valentino Rossi",
+            "Casey Stoner"
+        ],
+        "correct": 3,
+        "explanation": "Valentino Rossi è noto come 'Il Dottore'."
+    },
+    {
+        "question": "In quale anno Valentino Rossi ha vinto il suo primo titolo in MotoGP?",
+        "answers": [
+            "2000",
+            "2001",
+            "2002",
+            "2003"
+        ],
+        "correct": 2,
+        "explanation": "Valentino Rossi ha vinto il suo primo titolo in MotoGP nel 2002."
+    },
+    {
+        "question": "Quale team MotoGP ha vinto il campionato costruttori nel 2021?",
+        "answers": [
+            "Yamaha",
+            "Ducati",
+            "Suzuki",
+            "Honda"
+        ],
+        "correct": 2,
+        "explanation": "Ducati ha vinto il campionato costruttori nel 2021."
+    },
+    {
+        "question": "Quale pilota ha ottenuto il maggior numero di vittorie nella storia della MotoGP?",
+        "answers": [
+            "Valentino Rossi",
+            "Giacomo Agostini",
+            "Marc Marquez",
+            "Mick Doohan"
+        ],
+        "correct": 2,
+        "explanation": "Giacomo Agostini detiene il record per il maggior numero di vittorie nella storia della MotoGP."
+    },
+    {
+        "question": "In quale circuito si svolge il Gran Premio di San Marino?",
+        "answers": [
+            "Circuito di Jerez",
+            "Circuito di Silverstone",
+            "Misano World Circuit Marco Simoncelli",
+            "Le Mans"
+        ],
+        "correct": 3,
+        "explanation": "Il Gran Premio di San Marino si svolge al Misano World Circuit Marco Simoncelli."
+    },
+    {
+        "question": "Chi ha vinto il campionato MotoGP nel 2020?",
+        "answers": [
+            "Valentino Rossi",
+            "Marc Marquez",
+            "Joan Mir",
+            "Andrea Dovizioso"
+        ],
+        "correct": 3,
+        "explanation": "Joan Mir ha vinto il campionato MotoGP nel 2020."
+    },
+    {
+        "question": "Quale pilota ha vinto il Gran Premio d'Italia nel 2020?",
+        "answers": [
+            "Fabio Quartararo",
+            "Maverick Viñales",
+            "Andrea Dovizioso",
+            "Danilo Petrucci"
+        ],
+        "correct": 4,
+        "explanation": "Danilo Petrucci ha vinto il Gran Premio d'Italia nel 2020."
+    },
+    {
+        "question": "Quale marca di moto ha vinto il maggior numero di titoli mondiali in MotoGP?",
+        "answers": [
+            "Honda",
+            "Yamaha",
+            "Ducati",
+            "Suzuki"
+        ],
+        "correct": 1,
+        "explanation": "Honda ha vinto il maggior numero di titoli mondiali in MotoGP."
+    },
+    {
+        "question": "Chi è il pilota più giovane ad aver vinto un campionato del mondo in MotoGP?",
+        "answers": [
+            "Valentino Rossi",
+            "Marc Marquez",
+            "Freddie Spencer",
+            "Casey Stoner"
+        ],
+        "correct": 3,
+        "explanation": "Freddie Spencer è il pilota più giovane ad aver vinto un campionato del mondo in MotoGP."
+    }
+]

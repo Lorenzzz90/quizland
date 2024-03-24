@@ -1,10 +1,11 @@
 package handler
 
 import (
-	"github.com/Lorenzzz90/quizland/model"
-	"github.com/Lorenzzz90/quizland/view/question"
 	"net/http"
 	"strconv"
+
+	"github.com/Lorenzzz90/quizland/model"
+	"github.com/Lorenzzz90/quizland/view/question"
 
 	"github.com/labstack/echo/v4"
 )
@@ -39,6 +40,6 @@ func (h *QuestionHandler) HandleQuestionPost(c echo.Context) error {
 		score := h.Score
 		h.Index = 0
 		h.Score = 0
-		return render(c, question.Result(score))
+		return render(c, question.Result(score, len(h.Questions)))
 	}
 }

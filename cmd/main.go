@@ -17,7 +17,7 @@ import (
 
 func main() {
 	var questions []model.QuestionStruct
-	file, err := os.Open("goquiz.json")
+	file, err := os.Open("motogp.json")
 	if err != nil {
 		log.Fatal(err)
 	}

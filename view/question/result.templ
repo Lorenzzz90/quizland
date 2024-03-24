@@ -6,10 +6,10 @@ import (
 )
     
 
-templ Result(score int){
+templ Result(score int, total int){
     @layout.Base(){
         <div>
-            <p>Hai totalizzato { fmt.Sprint(score) } punti su 20 domande totali! </p><br/>
+            <p>Hai totalizzato { fmt.Sprint(score) } punti su { fmt.Sprint(total) } domande totali! </p><br/>
             <form action="/" method="get">
                 <input class="bg-white p-1.5 rounded-md shadow-lg hover:bg-teal-600 hover:text-white" type="submit" value="Riprova"></input>
             </form>

@@ -12,7 +12,7 @@ import "bytes"
 
 import (
 	"fmt"
-	"github.com/lorenzzz90/quizland/view/layout"
+	"github.com/Lorenzzz90/quizland/view/layout"
 )
 
 func Result(score int) templ.Component {

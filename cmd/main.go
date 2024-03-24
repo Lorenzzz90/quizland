@@ -3,8 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/lorenzzz90/quizland/handler"
-	"github.com/lorenzzz90/quizland/model"
+	"github.com/Lorenzzz90/quizland/handler"
+	"github.com/Lorenzzz90/quizland/model"
 	"io"
 	"log"
 	"os"

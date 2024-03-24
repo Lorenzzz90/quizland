@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"github.com/lorenzzz90/quizland/model"
-	"github.com/lorenzzz90/quizland/view/question"
+	"github.com/Lorenzzz90/quizland/model"
+	"github.com/Lorenzzz90/quizland/view/question"
 	"net/http"
 	"strconv"
 

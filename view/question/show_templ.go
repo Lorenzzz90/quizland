@@ -12,8 +12,8 @@ import "bytes"
 
 import (
 	"fmt"
-	"github.com/lorenzzz90/quizland/model"
-	"github.com/lorenzzz90/quizland/view/layout"
+	"github.com/Lorenzzz90/quizland/model"
+	"github.com/Lorenzzz90/quizland/view/layout"
 )
 
 func Show(q model.QuestionStruct) templ.Component {

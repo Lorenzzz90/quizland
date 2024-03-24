@@ -1,4 +1,4 @@
-module github.com/lorenzzz90/quizland
+module github.com/Lorenzzz90/quizland
 
 go 1.22.1
 

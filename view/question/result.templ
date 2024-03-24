@@ -8,10 +8,10 @@ import (
 
 templ Result(score int){
     @layout.Base(){
-        <div class="mx-auto p-2">
+        <div>
             <p>Hai totalizzato { fmt.Sprint(score) } punti su 20 domande totali! </p><br/>
             <form action="/" method="get">
-                <input type="submit" value="Riprova"></input>
+                <input class="bg-white p-1.5 rounded-md shadow-lg hover:bg-teal-600 hover:text-white" type="submit" value="Riprova"></input>
             </form>
         </div>
     }

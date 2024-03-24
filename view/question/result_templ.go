@@ -34,7 +34,7 @@ func Result(score int) templ.Component {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"mx-auto p-2\"><p>Hai totalizzato ")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div><p>Hai totalizzato ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -47,7 +47,7 @@ func Result(score int) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" punti su 20 domande totali! </p><br><form action=\"/\" method=\"get\"><input type=\"submit\" value=\"Riprova\"></form></div>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" punti su 20 domande totali! </p><br><form action=\"/\" method=\"get\"><input class=\"bg-white p-1.5 rounded-md shadow-lg hover:bg-teal-600 hover:text-white\" type=\"submit\" value=\"Riprova\"></form></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

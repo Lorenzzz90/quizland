@@ -3,13 +3,14 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/Lorenzzz90/quizland/handler"
-	"github.com/Lorenzzz90/quizland/model"
 	"io"
 	"log"
 	"os"
 	"os/exec"
 	"runtime"
+
+	"github.com/Lorenzzz90/quizland/handler"
+	"github.com/Lorenzzz90/quizland/model"
 
 	"github.com/labstack/echo/v4"
 )
@@ -32,6 +33,7 @@ func main() {
 	app.GET("/", questionHandler.HandleQuestionShow)
 	app.POST("/", questionHandler.HandleQuestionPost)
 
+	app.Static("/css", "css")
 	app.Start(":3000")
 	openbrowser("localhost:3000")
 }

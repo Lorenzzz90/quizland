@@ -1,0 +1,28 @@
+package question
+
+import (
+    "github.com/lorenzzz90/quizland/model"
+    "fmt"
+	"github.com/lorenzzz90/quizland/view/layout"
+)
+
+templ Show(q model.QuestionStruct){
+    @layout.Base(){
+        <div class="mx-auto p-2">
+        <form action="/" method="post">
+        <h3> { q.Question } </h3>
+        for i, answer := range q.Answers {
+            if i == 0{
+                <input type="radio" id={ fmt.Sprint(i + 1)} value={ fmt.Sprint(i + 1) } name="answer" checked="true"/>
+                <label for={ fmt.Sprint(i + 1) }> { answer } </label><br/>
+            } else {
+                <input type="radio" id={ fmt.Sprint(i + 1)} value={ fmt.Sprint(i + 1) } name="answer"/>
+                <label for={ fmt.Sprint(i + 1) }> { answer } </label><br/>
+            }
+        }
+        <br/>
+        <input type="submit" value="submit"></input>
+        </form>
+        </div>
+    }
+}

@@ -1,0 +1,18 @@
+package question
+
+import (
+    "github.com/lorenzzz90/quizland/view/layout"
+    "fmt"
+)
+    
+
+templ Result(score int){
+    @layout.Base(){
+        <div class="mx-auto p-2">
+            <p>Hai totalizzato { fmt.Sprint(score) } punti su 20 domande totali! </p><br/>
+            <form action="/" method="get">
+                <input type="submit" value="Riprova"></input>
+            </form>
+        </div>
+    }
+}

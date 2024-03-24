@@ -1,0 +1,219 @@
+[
+    {
+        "question": "Dove puoi utilizzare lo \"short operator assignment ( := )\" per assegnare un valore ad una variabile in go?",
+        "answers": [
+            "Ovunque all'interno del programma.",
+            "Solo all'interno della funzione main().",
+            "Solo all'interno delle funzioni.",
+            "Solo a livello di package"
+        ],
+        "correct": 3,
+        "explanation": "Lo short operator assignment è utilizzabile solo all'interno di una funzione, a livello di package devo utilizzare la keyword \"var\"."
+    },
+    {
+        "question": "In go il type \"rune\" è un alias per quale altro type?",
+        "answers": [
+            "int8",
+            "uint8",
+            "uint32",
+            "int32"
+        ],
+        "correct": 4,
+        "explanation": "rune è un alias di int32, go utilizza l'UTF-8 e la dimensione di un singolo carattere può variare tra 1 e 4 byte"
+    },
+    {
+        "question": "Se dichiaro: pi := 3.14159, cosa printerà la funzione fmt.Printf(\"%0.2f %[1]T, pi\")",
+        "answers": [
+            "3.14159 float64",
+            "3.14 float64",
+            "3.14159 float32",
+            "3.14 float32"
+        ],
+        "correct": 2,
+        "explanation": "0.2 prima di f indica il numero di numeri decimali da printare, [1] indica di prendere il primo parametro dopo la virgola, T printa il type, un float literal viene assegnato di default ad una variabile di tipo float64."
+    },
+    {
+        "question": "Se dichiaro: s := \"hello World!\", cosa printerà la funzione fmt.Printf(\"%s\", s[:11]\")",
+        "answers": [
+            "Hello World",
+            "Hello World!11",
+            "Hello World!",
+            "il programma uscirà con un errore"
+        ],
+        "correct": 1,
+        "explanation": "Hello World, in s[:11] lo 0 è sottinteso e l'undicesimo carattere(!) è escluso"
+    },
+    {
+        "question": "Quale tra queste è la dichiarazione corretta per creare una slice di 3 int: 1, 2, 3?",
+        "answers": [
+            "s := [3]int{1, 2, 3}",
+            "s := int[]{1, 2, 3}",
+            "s := [int]{1, 2, 3}",
+            "s := []int{1, 2, 3}"
+        ],
+        "correct": 4,
+        "explanation": "Anche la prima risposta rappresenta una sintassi corretta ma crea un array non una slice."
+    },
+    {
+        "question": "Creando una slice in questo modo: slice := make([]int, 0, 128) cosa otterrò?",
+        "answers": [
+            "Una nil slice",
+            "Una slice con length 0 e capacity 128",
+            "Una slice con capacity 0 e length 128",
+            "Una slice con capacity e length 128"
+        ],
+        "correct": 2,
+        "explanation": "Creando una slice con make se specifico 3 parametri, il primo sarà il type della slice, il secondo la length e il terzo la capacity."
+    },
+    {
+        "question": "Date due mappe: \"var m1 map[int]int\" e \"m2 := map[int]int{}\" cosa printerà la funzione fmt.Printf(\"%t %t\", m1 == nil, m2 == nil)?",
+        "answers": [
+            "false false",
+            "false true",
+            "true false",
+            "true true"
+        ],
+        "correct": 3,
+        "explanation": "Passando ad una variabile un map literal ( map[int]int{} ) la map sarà vuota ma non nil."
+    },
+    {
+        "question": "Iterando su una mappa m1 composta da key e value di tipo string, con il loop: \"for _, k := range m1\" cosa conterrà k ad ogni iterazione?",
+        "answers": [
+            "la key della map",
+            "il value della map",
+            "un int"
+        ],
+        "correct": 2,
+        "explanation": "Iterando con due valori su una mappa, il primo sarà sempre la key e il secondo il value. In questo caso k conterrà il valore, sicuramente non è una best practice dare il nome k ad una variabile contenente un value."
+    },
+    {
+        "question": "Dichiarando un funzione con la lettera iniziale maiuscola (es: DoSomething(x, y int) ) dove sarà possibile chiamare la funzione?",
+        "answers": [
+            "Solo all'interno del proprio package",
+            "Solo al di fuori del proprio package",
+            "Ovunque all'interno del programma",
+            "Ovunque purchè il package che chiama la funzione importi il package dove la funzione viene dichiarata"
+        ],
+        "correct": 4,
+        "explanation": "Per utilizzare una funzione dichiarata in un altro package devo prima importarla. Una funzione può essere importata solo se dichiarata con la lettera maiuscola nel package di appartenza."
+    },
+    {
+        "question": "Se creo una funzione che inizializza due variabili e ritorna una nuova funzione che utilizza le due variabili come parametro, cosa otterrò?",
+        "answers": [
+            "Una slice",
+            "Un context",
+            "Una closure",
+            "Una struct",
+            "Un metodo"
+        ],
+        "correct": 3,
+        "explanation": "Maggiori info: https://go.dev/tour/moretypes/25"
+    },
+    {
+        "question": "Chiamando una funzione usando il prefix \"defer\" (es: defer db.Close() ) quando verrà eseguita?",
+        "answers": [
+            "Appena prima di uscire dalla funzione dove è stata chiamata",
+            "Appena prima di uscire dal block dove è stata chiamata",
+            "Appena prima di uscire dalla funzione main()"
+        ],
+        "correct": 1,
+        "explanation": "Le funzioni con defer vengono pushate in uno stack e vengono eseguite in ordine LIFO, prima di uscire dalla funzione nella quale vengono chiamate"
+    },
+    {
+        "question": "Creando un nuovo type con: \"type score int\" e avendo due variabili \"i := 3\" e \"var score = 5\" come faccio ad assegnare il valore di \"score\" alla variabile \"i\"?",
+        "answers": [
+            "i = score",
+            "i := score",
+            "i = int(score)",
+            "score(i) = score"
+        ],
+        "correct": 3,
+        "explanation": "Anche se il type sottostante è lo stesso(int) i è una varibile di tipo int e score una variabile di tipo score, per assegnare score ad i devo prima castarlo."
+    },
+    {
+        "question": "Perchè tenere una variabile di tipo pointer di un elemento in una slice è rischioso in go?",
+        "answers": [
+            "Perchè la slice potrebbe essere poi riallocata in memoria",
+            "Perchè il pointer punterebbe all'intera slice e non all'elemento scelto",
+            "Perchè non avresti modo di utilizzare la variabile"
+        ],
+        "correct": 1,
+        "explanation": "Varie funzioni, come ad esempio append ritornano una nuova slice, e il pointer punterebbe ad un valore non più presente nella nuova copia della slice. "
+    },
+    {
+        "question": "Eseguire una funzione usando come parametro un pointer a livello di prestazioni è sempre la scelta migliore?",
+        "answers": [
+            "Si perchè i pointer hanno una dimensione non variabile",
+            "Dipende dalle dimensioni del parametro passato",
+            "No, i pointer pesano sempre di più dei value"
+        ],
+        "correct": 2,
+        "explanation": "Dipende dalla dimesione del parametro, se sto passando un file che pesa svariati mega potrebbe essere saggio utilizzare un pointer, viceversa per parametri di piccoli dimensioni è più efficente (a livello di prestazioni) non utilizzare i pointer."
+    },
+    {
+        "question": "Quale è la sintassi corretta per dichiarare un metodo per una struct chiamata \"person\"?",
+        "answers": [
+            "method getName(p person) string{...}",
+            "func getName(p person) string{...}",
+            "func person getName() string {....}",
+            "func (p person) getName() string",
+            "method (p person) getName() string"
+        ],
+        "correct": 4,
+        "explanation": "Anche la risposta 2 ha una sintassi corretta, ma in quel modo dichiaro una funzione normale, non un metodo."
+    },
+    {
+        "question": "Se dichiaro una nuova struct (Struct1) che ha come field un'altra struct (Struct2), come posso chiamare un metodo definito per struct2 in un istanza di struct1 chiamata s?",
+        "answers": [
+            "Struct2.MethodName()",
+            "s.MethodName()",
+            "MethodName.s(Struct2)"
+        ],
+        "correct": 2,
+        "explanation": "I metodi di Struct2 vengono \"promossi\" e possono essere utilizzati anche dalle istanze di Struct1, un'altra sintassi corretta sarebbe \"s.Struct2.MethodName()\"."
+    },
+    {
+        "question": "Date 3 variabili: a := 1, b := &a, c = *b + 1. Cosa printerà la funzione fmt.Printf(\"%d %d %d\", a, *b, c)?",
+        "answers": [
+            "1 1 2",
+            "1 0xc000012120 2",
+            "la funzione darà errore",
+            "1 0 1"
+        ],
+        "correct": 1,
+        "explanation": "Con la sintassi &a, ottengo l'address di a, con la sintassi *b, prendo il value del pointer b che punta al value di a"
+    },
+    {
+        "question": "Come dichiaro una nuova interface chiamata xInterface in go?",
+        "answers": [
+            "interface xInterface{...}",
+            "type xInterface interface{...}",
+            "xInterface newInterface()",
+            "xInterface interface{...}"
+        ],
+        "correct": 2,
+        "explanation": "Per dichiarare una nuova interface devo usare la keyword type, seguita dal nome dell'interface e dalla keyword interface"
+    },
+    {
+        "question": "Quale è lo zero value di un interfaccia in go?",
+        "answers": [
+            "0",
+            "{}",
+            "nil",
+            "empty"
+        ],
+        "correct": 3,
+        "explanation": "Lo zero value di un interface è nil"
+    },
+    {
+        "question": "Cosa succede se si tenta di chiamare un metodo su un nil pointer in Go?",
+        "answers": [
+            "Il programma va in panic.",
+            "Il metodo viene eseguito con valori zero per i suoi ricevitori.",
+            "Il metodo non viene eseguito."
+        ],
+        "correct": 1,
+        "explanation": "Chiamare un metodo su un nil pointer in go causa un panic."
+    }
+
+]

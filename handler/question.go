@@ -1,7 +1,12 @@
 package handler
 
 import (
+	"encoding/json"
+	"fmt"
+	"io"
+	"log"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/Lorenzzz90/quizland/model"
@@ -23,6 +28,30 @@ func (h *QuestionHandler) MainPage(c echo.Context) error {
 }
 
 func (h *QuestionHandler) Next(c echo.Context) error {
+	if h.Index == 0 {
+		var questions []model.QuestionStruct
+		var file *os.File
+		var err error
+		switch c.FormValue("quiz") {
+		case "golang":
+			fmt.Println("here")
+			file, err = os.Open("goquiz.json")
+		case "motogp":
+			file, err = os.Open("motogp.json")
+		case "dsa":
+			file, err = os.Open("dsa.json")
+		}
+		defer file.Close()
+		if err != nil {
+			log.Fatal(err)
+		}
+		read, err := io.ReadAll(file)
+		if err != nil {
+			log.Fatal(err)
+		}
+		json.Unmarshal(read, &questions)
+		h.Questions = questions
+	}
 	if h.Index < len(h.Questions) {
 		h.Index++
 		return render(c, question.Show(h.Questions[h.Index-1]))
@@ -36,8 +65,7 @@ func (h *QuestionHandler) Next(c echo.Context) error {
 
 func (h *QuestionHandler) Explain(c echo.Context) error {
 	correct := false
-	c.Request().ParseForm()
-	answer := c.Request().FormValue("answer")
+	answer := c.FormValue("answer")
 	intAnswer, err := strconv.Atoi(answer)
 	if err != nil {
 		http.Error(c.Response().Writer, "Invalid option", http.StatusTeapot)

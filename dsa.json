@@ -1,0 +1,178 @@
+[
+    {
+        "question": "Qual è la complessità temporale media di una ricerca in un albero binario di ricerca?",
+        "answers": [
+            "O(1)",
+            "O(log n)",
+            "O(n)",
+            "O(n log n)"
+        ],
+        "correct": 2,
+        "explanation": "La complessità temporale media di una ricerca in un albero binario di ricerca è O(log n), se l'albero è bilanciato."
+    },
+    {
+        "question": "Qual è la complessità temporale peggiore del Bubble Sort?",
+        "answers": [
+            "O(n)",
+            "O(n log n)",
+            "O(n^2)",
+            "O(log n)"
+        ],
+        "correct": 3,
+        "explanation": "Il Bubble Sort ha una complessità temporale peggiore di O(n^2) a causa dei suoi due cicli nidificati."
+    },
+    {
+        "question": "Cosa rappresenta un nodo in una lista collegata?",
+        "answers": [
+            "Un valore e un puntatore al nodo successivo",
+            "Un valore e un puntatore al nodo precedente",
+            "Un valore e due puntatori, uno al nodo precedente e uno al successivo",
+            "Un array di valori"
+        ],
+        "correct": 1,
+        "explanation": "In una lista collegata, ogni nodo contiene un valore e un puntatore al nodo successivo."
+    },
+    {
+        "question": "Qual è la differenza principale tra una coda e uno stack?",
+        "answers": [
+            "Una coda usa LIFO, mentre uno stack usa FIFO",
+            "Una coda usa FIFO, mentre uno stack usa LIFO",
+            "Una coda non permette l'accesso casuale, mentre uno stack sì",
+            "Non c'è differenza"
+        ],
+        "correct": 2,
+        "explanation": "Una coda implementa un approccio FIFO (First In, First Out), mentre uno stack implementa LIFO (Last In, First Out)."
+    },
+    {
+        "question": "In un albero binario di ricerca, dove si troverebbe un nodo con un valore minore rispetto alla radice?",
+        "answers": [
+            "Sul ramo destro",
+            "Sul ramo sinistro",
+            "In qualsiasi ramo",
+            "Allo stesso livello della radice"
+        ],
+        "correct": 2,
+        "explanation": "In un albero binario di ricerca, tutti i nodi con valori minori della radice si trovano sul ramo sinistro."
+    },
+    {
+        "question": "Quale algoritmo di ricerca è più efficiente per cercare in un array ordinato?",
+        "answers": [
+            "Ricerca lineare",
+            "Ricerca binaria",
+            "Ricerca del minimo",
+            "Ricerca del massimo"
+        ],
+        "correct": 2,
+        "explanation": "La ricerca binaria è più efficiente per gli array ordinati, con una complessità temporale di O(log n)."
+    },
+    {
+        "question": "Quale struttura dati utilizza il metodo di ordinamento Heap Sort? ",
+        "answers": [
+            "Array",
+            "Heap binario",
+            "Albero rosso-nero",
+            "Grafo"
+        ],
+        "correct": 2,
+        "explanation": "Heap Sort utilizza un heap binario per organizzare gli elementi e eseguire l'ordinamento."
+    },
+    {
+        "question": "Qual è la differenza tra ricerca profonda (DFS) e ricerca in ampiezza (BFS)?",
+        "answers": [
+            "DFS usa una coda, BFS usa uno stack",
+            "DFS usa uno stack, BFS usa una coda",
+            "DFS non può essere utilizzato su alberi, BFS sì",
+            "Non c'è differenza"
+        ],
+        "correct": 2,
+        "explanation": "DFS (Depth-First Search) utilizza uno stack per esplorare il grafo in profondità, mentre BFS (Breadth-First Search) usa una coda per esplorare il grafo livello per livello."
+    },
+    {
+        "question": "In un albero AVL, quale condizione deve sempre essere soddisfatta?",
+        "answers": [
+            "L'albero deve essere completo",
+            "L'albero deve essere pieno",
+            "La differenza di altezza tra i sottoalberi di qualsiasi nodo non è più di uno",
+            "Ogni nodo deve avere esattamente due figli"
+        ],
+        "correct": 3,
+        "explanation": "Gli alberi AVL sono alberi binari di ricerca bilanciati in cui la differenza di altezza tra i sottoalberi di qualsiasi nodo è al massimo uno."
+    },
+    {
+        "question": "Quale algoritmo di ordinamento è considerato stabile?",
+        "answers": [
+            "Quick Sort",
+            "Merge Sort",
+            "Selection Sort",
+            "Heap Sort"
+        ],
+        "correct": 2,
+        "explanation": "Merge Sort è un algoritmo di ordinamento stabile, il che significa che mantiene l'ordine relativo degli elementi uguali."
+    },
+    {
+        "question": "Che cosa è un grafo aciclico diretto (DAG)?",
+        "answers": [
+            "Un grafo dove ogni vertice ha un arco entrante",
+            "Un grafo che non ha cicli e dove gli archi hanno una direzione",
+            "Un grafo dove ogni vertice ha un arco uscente",
+            "Un grafo completamente connesso"
+        ],
+        "correct": 2,
+        "explanation": "Un DAG è un grafo diretto senza cicli, il che significa che non è possibile partire da un vertice e tornare allo stesso vertice seguendo una sequenza di archi diretti."
+    },
+    {
+        "question": "Quale algoritmo di ordinamento non è basato sul confronto?",
+        "answers": [
+            "Bubble Sort",
+            "Merge Sort",
+            "Counting Sort",
+            "Quick Sort"
+        ],
+        "correct": 3,
+        "explanation": "Counting Sort è un algoritmo di ordinamento non basato sul confronto che funziona con elementi discreti."
+    },
+    {
+        "question": "Cosa significa che una struttura dati è 'dinamica'?",
+        "answers": [
+            "Può cambiare dimensione durante l'esecuzione del programma",
+            "Può eseguire operazioni in tempo costante",
+            "Può essere utilizzata solo in linguaggi di programmazione dinamici",
+            "Può memorizzare solo tipi di dati primitivi"
+        ],
+        "correct": 1,
+        "explanation": "Una struttura dati dinamica può cambiare la sua dimensione durante l'esecuzione del programma, come ad esempio le liste collegate."
+    },
+    {
+        "question": "Qual è la complessità temporale del miglior caso per l'Insertion Sort?",
+        "answers": [
+            "O(n)",
+            "O(n log n)",
+            "O(n^2)",
+            "O(log n)"
+        ],
+        "correct": 1,
+        "explanation": "Nel miglior caso, quando l'array è già ordinato, l'Insertion Sort ha una complessità temporale di O(n)."
+    },
+    {
+        "question": "Quale struttura dati è particolarmente adatta per implementare una coda di priorità?",
+        "answers": [
+            "Lista collegata",
+            "Array",
+            "Heap",
+            "Albero binario di ricerca"
+        ],
+        "correct": 3,
+        "explanation": "Un heap è particolarmente adatto per implementare una coda di priorità, grazie alla sua capacità di inserire e rimuovere elementi in tempo logaritmico."
+    },
+    {
+        "question": "In quale caso l'uso di un algoritmo di ricerca hash è più efficiente?",
+        "answers": [
+            "Quando gli elementi sono ordinati",
+            "Quando gli elementi sono in ordine casuale",
+            "Quando la distribuzione degli elementi è uniforme",
+            "Quando ci sono molti duplicati"
+        ],
+        "correct": 3,
+        "explanation": "Un algoritmo di ricerca hash è più efficiente quando la distribuzione degli elementi è uniforme e il carico del fattore hash è bilanciato."
+    }
+]

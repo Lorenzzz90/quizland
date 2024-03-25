@@ -31,7 +31,7 @@ func Start() templ.Component {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white \" hx-target=\"#question\" hx-post=\"/next\"><h1 class=\" text-5xl\">Start Quiz</h1></div>")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div hx-vals=\"{&#34;quiz&#34;: &#34;golang&#34;}\" class=\"hover:cursor-pointer container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white \" hx-target=\"#question\" hx-post=\"/next\"><h1 class=\" text-5xl\">Go Lang</h1></div><div hx-vals=\"{&#34;quiz&#34;: &#34;dsa&#34;}\" class=\"hover:cursor-pointer container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white \" hx-target=\"#question\" hx-post=\"/next\"><h1 class=\" text-5xl\">DSA</h1></div><div hx-vals=\"{&#34;quiz&#34;: &#34;motogp&#34;}\" class=\"hover:cursor-pointer container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white \" hx-target=\"#question\" hx-post=\"/next\"><h1 class=\" text-5xl\">Motogp</h1></div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

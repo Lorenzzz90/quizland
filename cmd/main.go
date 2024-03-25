@@ -1,34 +1,23 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"io"
 	"log"
-	"os"
 	"os/exec"
 	"runtime"
 
 	"github.com/Lorenzzz90/quizland/handler"
-	"github.com/Lorenzzz90/quizland/model"
+
 
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
+
 func main() {
-	var questions []model.QuestionStruct
-	file, err := os.Open("goquiz.json")
-	if err != nil {
-		log.Fatal(err)
-	}
-	read, err := io.ReadAll(file)
-	if err != nil {
-		log.Fatal(err)
-	}
-	json.Unmarshal(read, &questions)
 	app := echo.New()
-	//app.Use(middleware.Logger())
-	questionHandler := handler.QuestionHandler{Questions: questions, Index: 0, Score: 0}
+	app.Use(middleware.Logger())
+	questionHandler := handler.QuestionHandler{Index: 0, Score: 0}
 
 	app.GET("/", questionHandler.MainPage)
 	app.POST("/next", questionHandler.Next)

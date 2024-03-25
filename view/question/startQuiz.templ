@@ -1,17 +1,35 @@
 package question
 
+import "os"
+import "log"
+import "strings"
+
+
 import 	"github.com/Lorenzzz90/quizland/view/layout"
+
+var fileNames = readFiles() 
 
 templ Start(){
     @layout.Base(){
-        <div hx-vals='{"quiz": "golang"}' class="hover:cursor-pointer container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white " hx-target="#question" hx-post="/next">
-            <h1  class=" text-5xl">Go Lang</h1>
+        for _, fileName := range fileNames {
+        <div hx-include="this" hx-target="#question" hx-post="/next" class="hover:cursor-pointer container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white">
+            <input type="hidden" name="quiz" value={fileName} />
+            <h1  class=" text-5xl"> { fileName } </h1>
         </div>
-        <div hx-vals='{"quiz": "dsa"}' class="hover:cursor-pointer container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white " hx-target="#question" hx-post="/next">
-            <h1  class=" text-5xl">DSA</h1>
-        </div>
-        <div hx-vals='{"quiz": "motogp"}' class="hover:cursor-pointer container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white " hx-target="#question" hx-post="/next">
-            <h1  class=" text-5xl">Motogp</h1>
-        </div>
+        }
     }
+}
+
+func readFiles()[]string {
+    fileNames := []string{}
+    files, err := os.ReadDir("./quizFiles")
+    if err != nil{
+        log.Fatal("Impossibile leggere file nella directory")
+    }
+    for _, fileName := range files{
+        h1Slice := strings.Split(fileName.Name(), ".")
+        h1FileName := strings.Title(h1Slice[0])
+        fileNames = append(fileNames, h1FileName)
+    }
+    return fileNames
 }

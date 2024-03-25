@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/Lorenzzz90/quizland/model"
 	"github.com/Lorenzzz90/quizland/view/question"
@@ -32,14 +33,15 @@ func (h *QuestionHandler) Next(c echo.Context) error {
 		var questions []model.QuestionStruct
 		var file *os.File
 		var err error
-		switch c.FormValue("quiz") {
-		case "golang":
-			fmt.Println("here")
-			file, err = os.Open("goquiz.json")
-		case "motogp":
-			file, err = os.Open("motogp.json")
-		case "dsa":
-			file, err = os.Open("dsa.json")
+		files, err := os.ReadDir("./quizFiles")
+		if err != nil {
+			log.Fatal("Impossibile leggere file nella directory")
+		}
+		for _, f := range files {
+			fmt.Println(fmt.Sprint(strings.ToLower(c.FormValue("quiz")), ".json"))
+			if f.Name() == fmt.Sprint(strings.ToLower(c.FormValue("quiz")), ".json") {
+				file, err = os.Open(fmt.Sprint("./quizFiles/", f.Name()))
+			}
 		}
 		defer file.Close()
 		if err != nil {

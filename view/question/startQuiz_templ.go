@@ -10,7 +10,13 @@ import "context"
 import "io"
 import "bytes"
 
+import "os"
+import "log"
+import "strings"
+
 import "github.com/Lorenzzz90/quizland/view/layout"
+
+var fileNames = readFiles()
 
 func Start() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
@@ -31,9 +37,32 @@ func Start() templ.Component {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
 				defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div hx-vals=\"{&#34;quiz&#34;: &#34;golang&#34;}\" class=\"hover:cursor-pointer container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white \" hx-target=\"#question\" hx-post=\"/next\"><h1 class=\" text-5xl\">Go Lang</h1></div><div hx-vals=\"{&#34;quiz&#34;: &#34;dsa&#34;}\" class=\"hover:cursor-pointer container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white \" hx-target=\"#question\" hx-post=\"/next\"><h1 class=\" text-5xl\">DSA</h1></div><div hx-vals=\"{&#34;quiz&#34;: &#34;motogp&#34;}\" class=\"hover:cursor-pointer container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white \" hx-target=\"#question\" hx-post=\"/next\"><h1 class=\" text-5xl\">Motogp</h1></div>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
+			for _, fileName := range fileNames {
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div hx-include=\"this\" hx-target=\"#question\" hx-post=\"/next\" class=\"hover:cursor-pointer container py-10 px-10 mx-0 flex flex-col items-center bg-white p-1.5 rounded-md shadow-lg hover:bg-cyan-600 hover:text-white\"><input type=\"hidden\" name=\"quiz\" value=\"")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(fileName))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"><h1 class=\" text-5xl\">")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var3 string
+				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(fileName)
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/question/startQuiz.templ`, Line: 16, Col: 46}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h1></div>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
 			}
 			if !templ_7745c5c3_IsBuffer {
 				_, templ_7745c5c3_Err = io.Copy(templ_7745c5c3_W, templ_7745c5c3_Buffer)
@@ -49,4 +78,18 @@ func Start() templ.Component {
 		}
 		return templ_7745c5c3_Err
 	})
+}
+
+func readFiles() []string {
+	fileNames := []string{}
+	files, err := os.ReadDir("./quizFiles")
+	if err != nil {
+		log.Fatal("Impossibile leggere file nella directory")
+	}
+	for _, fileName := range files {
+		h1Slice := strings.Split(fileName.Name(), ".")
+		h1FileName := strings.Title(h1Slice[0])
+		fileNames = append(fileNames, h1FileName)
+	}
+	return fileNames
 }

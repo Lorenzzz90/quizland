@@ -66,17 +66,6 @@
         "explanation": "La ricerca binaria è più efficiente per gli array ordinati, con una complessità temporale di O(log n)."
     },
     {
-        "question": "Quale struttura dati utilizza il metodo di ordinamento Heap Sort? ",
-        "answers": [
-            "Array",
-            "Heap binario",
-            "Albero rosso-nero",
-            "Grafo"
-        ],
-        "correct": 2,
-        "explanation": "Heap Sort utilizza un heap binario per organizzare gli elementi e eseguire l'ordinamento."
-    },
-    {
         "question": "Qual è la differenza tra ricerca profonda (DFS) e ricerca in ampiezza (BFS)?",
         "answers": [
             "DFS usa una coda, BFS usa uno stack",
@@ -97,17 +86,6 @@
         ],
         "correct": 3,
         "explanation": "Gli alberi AVL sono alberi binari di ricerca bilanciati in cui la differenza di altezza tra i sottoalberi di qualsiasi nodo è al massimo uno."
-    },
-    {
-        "question": "Quale algoritmo di ordinamento è considerato stabile?",
-        "answers": [
-            "Quick Sort",
-            "Merge Sort",
-            "Selection Sort",
-            "Heap Sort"
-        ],
-        "correct": 2,
-        "explanation": "Merge Sort è un algoritmo di ordinamento stabile, il che significa che mantiene l'ordine relativo degli elementi uguali."
     },
     {
         "question": "Che cosa è un grafo aciclico diretto (DAG)?",
@@ -174,5 +152,16 @@
         ],
         "correct": 3,
         "explanation": "Un algoritmo di ricerca hash è più efficiente quando la distribuzione degli elementi è uniforme e il carico del fattore hash è bilanciato."
+    },
+        {
+        "question": "In un albero binario di ricerca (BST), ogni nodo ha un valore unico. Qual è la complessità temporale dell’operazione di ricerca di un valore in un BST bilanciato?",
+        "answers": [
+            "O(n)",
+            "O(log ⁡n)",
+            "O(n log ⁡n)",
+            "O(1)"
+        ],
+        "correct": 2,
+        "explanation": "In un BST bilanciato, l’operazione di ricerca ha una complessità temporale di O(log ⁡n) poiché ad ogni passo si elimina circa la metà dei nodi dalla ricerca, seguendo il principio del divide et impera."
     }
 ]

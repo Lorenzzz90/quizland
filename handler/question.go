@@ -41,17 +41,20 @@ func (h *QuestionHandler) Next(c echo.Context) error {
 			fmt.Println(fmt.Sprint(strings.ToLower(c.FormValue("quiz")), ".json"))
 			if f.Name() == fmt.Sprint(strings.ToLower(c.FormValue("quiz")), ".json") {
 				file, err = os.Open(fmt.Sprint("./quizFiles/", f.Name()))
+				if err != nil {
+					log.Fatal(err)
+				}
 			}
 		}
 		defer file.Close()
-		if err != nil {
-			log.Fatal(err)
-		}
 		read, err := io.ReadAll(file)
 		if err != nil {
 			log.Fatal(err)
 		}
-		json.Unmarshal(read, &questions)
+		err = json.Unmarshal(read, &questions)
+		if err != nil {
+			log.Fatal(err)
+		}
 		h.Questions = questions
 	}
 	if h.Index < len(h.Questions) {
